@@ -1,12 +1,8 @@
-import BaseRouter from './router/index'
-import { BrowserRouter } from 'react-router-dom'
-
+import { useRoutes } from 'react-router-dom'
+import { makeRoutes } from './router'
+const routes = makeRoutes()
 function App() {
-	return (
-		<BrowserRouter>
-			<BaseRouter />
-		</BrowserRouter>
-	)
+	return useRoutes(routes)
 }
 
 export default App

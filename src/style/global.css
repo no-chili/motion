@@ -1,0 +1,46 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+li {
+	list-style: none;
+}
+
+html,
+body,
+#root {
+	height: 100vh;
+	overflow: hidden;
+}
+
+/* 隐藏滚动条 */
+::-webkit-scrollbar {
+	display: none; /* Chrome Safari */
+}
+
+.iconbtn {
+	--at-apply: w-15 h-15 my-10 text-center leading-15 rounded bg-blueGray;
+}
+
+.search {
+	--at-apply: w-full max-w-300 left-1/2 fixed;
+	transform: translate(-50%, 0);
+}
+
+.image {
+	--at-apply: object-cover rounded-1 overflow-hidden;
+	aspect-ratio: 1;
+	width: 100%;
+}
+
+.config {
+	--at-apply: fixed left-1/2 bottom-1/2;
+	transform: translate(-50%, 0);
+}
+
+.abscenter {
+	--at-apply: absolute left-1/2 top-1/2;
+	transform: translate(-50%, -50%);
+}
