@@ -20,7 +20,7 @@ export function makeRoutes() {
 	const routes: Array<RoutePropsWidthChildren> = [
 		{
 			path: '/',
-			element: <Home />,
+			element: <Navigate to='/pages/home/content' />,
 		},
 		{
 			path: '/pages/home',
