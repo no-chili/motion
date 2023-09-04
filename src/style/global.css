@@ -44,3 +44,12 @@ body,
 	--at-apply: absolute left-1/2 top-1/2;
 	transform: translate(-50%, -50%);
 }
+
+.navlogo{
+	--at-apply:fixed top-0 text-center p-1 z-999 md:hidden w-full bg-#0559fa text-white
+}
+
+.scroll {
+	--at-apply: absolute h-3 bg-red w-full;
+	transform-origin: 0%;
+}

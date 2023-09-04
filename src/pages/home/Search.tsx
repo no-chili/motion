@@ -25,7 +25,8 @@ export default function Search(props: Props) {
 	}
 	const keyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
 		const key = e.key
-		if (key === 'Enter') {
+		const words = searchValue.trim()
+		if (key === 'Enter' && words.length > 0) {
 			search()
 		}
 	}

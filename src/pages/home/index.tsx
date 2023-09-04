@@ -6,7 +6,6 @@ import { useSelector } from 'react-redux'
 import { RootState } from '../../store'
 export default function Home() {
 	const isShow = useSelector((state: RootState) => state.cover.isShow)
-
 	return (
 		<>
 			<div className='flex overflow-hidden bg-#f7f7f7 h-full'>

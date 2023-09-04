@@ -8,7 +8,9 @@ export default function Photos() {
 	const dispatch: AppDispatch = useDispatch()
 	const nav = useNavigate()
 	function gotoPhotos() {
-		dispatch(show())
+		setTimeout(() => {
+			dispatch(show())
+		}, 100)
 		setTimeout(() => {
 			nav('/pages/home/photos')
 		}, 1000)
@@ -19,13 +21,8 @@ export default function Photos() {
 			<Card title='随机图片' message='国外接口可能有点慢'>
 				<motion.div className='grid gap-2 justify-center items-center md:grid-cols-3 grid-cols-4'>
 					{new Array(9).fill(0).map((_, index) => (
-						<motion.img
-							whileHover={{ scale: 1.05, transition: { type: 'tween' } }}
-							key={index}
-							className='image'
-							// onClick={() => setSelectedId(index)}
-							src={`https://picsum.photos/id/${Math.floor(Math.random() * 300)}/200`}
-						/>
+						// <img key={index} className='image' src={`https://picsum.photos/id/${Math.floor(Math.random() * 300)}/200`} />
+						<img key={index} className='image' src={`https://picsum.photos/id/${index}/200`} />
 					))}
 				</motion.div>
 				<div className='mt-5'>
