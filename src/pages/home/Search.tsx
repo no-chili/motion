@@ -25,15 +25,17 @@ export default function Search(props: Props) {
 	}
 	const keyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
 		const key = e.key
-		const words = searchValue.trim()
-		if (key === 'Enter' && words.length > 0) {
+		if (key === 'Enter') {
 			search()
 		}
 	}
 	const search = () => {
-		nav('/pages/home/article', {
-			state: searchValue,
-		})
+		const words = searchValue.trim()
+		if (words.length > 0) {
+			nav('/pages/home/article', {
+				state: searchValue,
+			})
+		}
 	}
 
 	// 监听滚动，控制搜索是否显示
@@ -78,7 +80,9 @@ export default function Search(props: Props) {
 								className='border-none pl-5 font-bold flex-1 text-#ababab focus:text-#232323 outline-none text-2xl'
 								type='text'
 							/>
-							<div className='w-20  text-2xl font-800'>搜索</div>
+							<div onClick={search} className='w-20  text-2xl font-800'>
+								搜索
+							</div>
 						</motion.div>
 					</LayoutGroup>
 				</motion.div>
