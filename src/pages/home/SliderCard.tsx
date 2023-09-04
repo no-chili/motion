@@ -4,7 +4,7 @@ export default function SliderCard() {
 	const config = [
 		{
 			title: '在这里你能看到!',
-			list: ['响应式布局', 'motion动效', '页面过渡动画', '文件路由', 'SQL模拟', '路由传参', '...'],
+			list: ['响应式布局', 'motion动效', '页面过渡动画', 'SQL模拟', '路由传参', '...'],
 		},
 		{
 			title: '我使用到了这些!',
