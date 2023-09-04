@@ -17,10 +17,10 @@ export default function Index() {
 			<motion.div style={{ scaleX: scrollX }} className='scroll'></motion.div>
 			<div ref={containerRef} className='h-full overflow-auto'>
 				<h1 className='m-20'>路由传参-搜索词：{state}</h1>
-				<h3 className='m-10'>以下内容与搜索无关，仅用于展示滚动效果</h3>
 				<span onClick={goHome} className='border-solid  border-transparent border-b-red'>
 					点此返回
 				</span>
+				<h3 className='m-10'>以下内容与搜索无关，仅用于展示滚动效果</h3>
 				<Content />
 				<div className='m-10'>
 					<span onClick={() => scrollToTop(containerRef)} className='border-solid text-red font-900 my-5 border-transparent border-b-red'>
@@ -53,7 +53,13 @@ function Content() {
 					</a>
 				</ul>
 			</h5>
-			<h2 className='text-center m-10'>Gestures</h2>
+			<h2 className='text-center m-10'>
+				<h5 className='text-center'>
+					<s>无意义内容</s>
+				</h5>
+				Gestures
+			</h2>
+
 			<h5 className='indent'>
 				A powerful gesture recognition system for the browser. 强大的浏览器手势识别系统。 Motion extends the basic set of event listeners provided by React with a simple yet powerful set of UI gesture
 				recognisers. Motion{' '}

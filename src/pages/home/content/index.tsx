@@ -21,7 +21,7 @@ export default function Content() {
 				<Search />
 			</div>
 			<h1 onClick={goHome} className='navlogo'>
-				LOGO
+				给个机会
 			</h1>
 			<LayoutGroup>
 				<motion.div className='md:m-5 mt-10 lg:mx-0 lg:mt-30'>

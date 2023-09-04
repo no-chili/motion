@@ -22,7 +22,6 @@ export default function Photos() {
 				<motion.div className='grid gap-2 justify-center items-center md:grid-cols-3 grid-cols-4'>
 					{new Array(9).fill(0).map((_, index) => (
 						<img key={index} className='image' src={`https://picsum.photos/id/${Math.floor(Math.random() * 50)}/200`} />
-						// <img key={index} className='image' src={`https://picsum.photos/id/${index}/200`} />
 					))}
 				</motion.div>
 				<div className='mt-5'>
