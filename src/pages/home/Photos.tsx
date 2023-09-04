@@ -21,8 +21,8 @@ export default function Photos() {
 			<Card title='随机图片' message='国外接口可能有点慢'>
 				<motion.div className='grid gap-2 justify-center items-center md:grid-cols-3 grid-cols-4'>
 					{new Array(9).fill(0).map((_, index) => (
-						// <img key={index} className='image' src={`https://picsum.photos/id/${Math.floor(Math.random() * 300)}/200`} />
-						<img key={index} className='image' src={`https://picsum.photos/id/${index}/200`} />
+						<img key={index} className='image' src={`https://picsum.photos/id/${Math.floor(Math.random() * 50)}/200`} />
+						// <img key={index} className='image' src={`https://picsum.photos/id/${index}/200`} />
 					))}
 				</motion.div>
 				<div className='mt-5'>

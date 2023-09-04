@@ -8,7 +8,7 @@ export default function SliderCard() {
 		},
 		{
 			title: '我使用到了这些!',
-			list: ['TypeScript', 'React', 'React-Router', 'Redux', 'UnoCSS', 'Frame-motion', 'Vite', 'Sql.js', 'monaco-editor', '...'],
+			list: ['TypeScript', 'React', 'React-Router', 'Redux', 'UnoCSS', 'Frame-motion', 'Vite', 'Sql.js', 'Monaco-Editor', '...'],
 		},
 		{
 			title: '此外，我还会!',

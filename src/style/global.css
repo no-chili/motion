@@ -53,3 +53,7 @@ body,
 	--at-apply: absolute h-3 bg-red w-full;
 	transform-origin: 0%;
 }
+
+.trouble li{
+	--at-apply:my-3
+}
