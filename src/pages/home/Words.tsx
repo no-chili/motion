@@ -2,6 +2,10 @@ import Card from '../../component/Card'
 import words from '../../assets/json/1.json'
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+type Words = Partial<{
+	translation: string
+	type: string
+}>
 export default function Words() {
 	const [currentWords, setCurrentWorlds] = useState(words[Math.floor(Math.random() * words.length)])
 	const [inputWorld, setInputWorld] = useState('')
@@ -19,9 +23,9 @@ export default function Words() {
 		<div>
 			<Card title='单词拼写'>
 				<h3 className='mb-3'>得分:{count}</h3>
-				{currentWords.translations.map((item) => (
+				{currentWords.translations.map((item: Words) => (
 					<h4 key={item.translation}>
-						{item.translation}-{item.type!}
+						{item.translation}-{item.type}
 					</h4>
 				))}
 				<input placeholder='尝试在此输入单词' value={inputWorld} onChange={(e) => changeInput(e)} className='w-full outline-none text-xl border-transparent border-b-red mt-3 border-3' type='text' />
