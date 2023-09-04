@@ -2,7 +2,7 @@ import { Navigate } from 'react-router-dom'
 import Content from '../pages/home/content'
 import NotFound from '../pages/error'
 import Home from '../pages/home'
-import Article from '../pages/home/Article'
+import Article from '../pages/home/article/index'
 import Photos from '../pages/home/Photos'
 
 export type RouteProps = {
