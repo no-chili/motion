@@ -15,41 +15,22 @@ export default function Photos() {
 	}
 
 	return (
-		<div className='mt-5 shadow-md'>
-			<Card title='Photos' message='这有一些图片,点击试试'>
-				<div className='grid gap-2 justify-center items-center md:grid-cols-3 grid-cols-4'>
-					<img
-						className='image'
-						src='https://images.unsplash.com/photo-1692613174661-a239fbf8ebe4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1035&q=80'
-					/>
-					<img
-						className='image'
-						src='https://images.unsplash.com/photo-1692613174661-a239fbf8ebe4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1035&q=80'
-					/>
-					<img
-						className='image'
-						src='https://images.unsplash.com/photo-1692613174661-a239fbf8ebe4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1035&q=80'
-					/>
-					<img
-						className='image'
-						src='https://images.unsplash.com/photo-1692613174661-a239fbf8ebe4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1035&q=80'
-					/>
-					<img
-						className='image'
-						src='https://images.unsplash.com/photo-1692613174661-a239fbf8ebe4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1035&q=80'
-					/>
-					<img
-						className='image'
-						src='https://images.unsplash.com/photo-1692613174661-a239fbf8ebe4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1035&q=80'
-					/>
-					<img
-						className='image'
-						src='https://images.unsplash.com/photo-1692613174661-a239fbf8ebe4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1035&q=80'
-					/>
-				</div>
+		<div className='shadow-md'>
+			<Card title='随机图片' message='国外接口可能有点慢'>
+				<motion.div className='grid gap-2 justify-center items-center md:grid-cols-3 grid-cols-4'>
+					{new Array(9).fill(0).map((_, index) => (
+						<motion.img
+							whileHover={{ scale: 1.05, transition: { type: 'tween' } }}
+							key={index}
+							className='image'
+							// onClick={() => setSelectedId(index)}
+							src={`https://picsum.photos/id/${Math.floor(Math.random() * 300)}/200`}
+						/>
+					))}
+				</motion.div>
 				<div className='mt-5'>
 					<motion.div className='relative border-solid flex w-fit items-center p-1 rounded border-red bg-red hover:bg-yellow hover:border-yellow transition'>
-						<span onClick={gotoPhotos}>see more</span>
+						<span onClick={gotoPhotos}>more</span>
 						<div className='text-lg i-ic:baseline-keyboard-arrow-right'></div>
 						<AnimatePresence>
 							<motion.div

@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-const coverSlice = createSlice({
+const searchScroll = createSlice({
 	name: 'cover',
 	initialState: {
 		isShow: false,
@@ -15,6 +15,6 @@ const coverSlice = createSlice({
 	},
 })
 
-export const { show, hidden } = coverSlice.actions
+export const { show, hidden } = searchScroll.actions
 
-export default coverSlice.reducer
+export default searchScroll.reducer

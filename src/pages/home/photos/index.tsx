@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { hidden, show } from '../../../store/coverSlice'
+import Button from '../../../component/Button'
 
 export default function Photos() {
 	const nav = useNavigate()
@@ -13,40 +14,15 @@ export default function Photos() {
 		dispatch(show())
 		setTimeout(() => {
 			nav('/pages/home/content')
-		}, 1000)
+		}, 800)
 	}
 	return (
 		<div className='m-auto h-full relative md:py-10 lg:w-800px fs:w-640px'>
-			<button onClick={geBack}>back</button>
+			<div className='mb-5'>
+				<Button onClick={geBack}>Back</Button>
+			</div>
 			<div className='grid gap-2 justify-center items-center md:grid-cols-3 grid-cols-4'>
-				<img
-					className='image'
-					src='https://images.unsplash.com/photo-1692613174661-a239fbf8ebe4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1035&q=80'
-				/>
-				<img
-					className='image'
-					src='https://images.unsplash.com/photo-1692613174661-a239fbf8ebe4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1035&q=80'
-				/>
-				<img
-					className='image'
-					src='https://images.unsplash.com/photo-1692613174661-a239fbf8ebe4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1035&q=80'
-				/>
-				<img
-					className='image'
-					src='https://images.unsplash.com/photo-1692613174661-a239fbf8ebe4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1035&q=80'
-				/>
-				<img
-					className='image'
-					src='https://images.unsplash.com/photo-1692613174661-a239fbf8ebe4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1035&q=80'
-				/>
-				<img
-					className='image'
-					src='https://images.unsplash.com/photo-1692613174661-a239fbf8ebe4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1035&q=80'
-				/>
-				<img
-					className='image'
-					src='https://images.unsplash.com/photo-1692613174661-a239fbf8ebe4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1035&q=80'
-				/>
+				<img className='image' src='https://picsum.photos/200/300' />
 			</div>
 		</div>
 	)
