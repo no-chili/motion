@@ -1,6 +1,6 @@
 import Card from '../../component/Card'
 import words from '../../assets/json/1.json'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 type Words = Partial<{
 	translation: string
@@ -16,9 +16,13 @@ export default function Words() {
 		if (value === currentWords.word) {
 			setCurrentWorlds(words[Math.floor(Math.random() * words.length)])
 			setCount((state) => state + 1)
+			window.localStorage.setItem('count', count + 1 + '')
 			setInputWorld('')
 		}
 	}
+	useEffect(() => {
+		setCount(Number(window.localStorage.getItem('count')) || 0)
+	}, [])
 	return (
 		<div>
 			<Card title='单词拼写'>

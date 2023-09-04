@@ -54,9 +54,9 @@ function Content() {
 				</ul>
 			</h5>
 			<h2 className='text-center m-10'>
-				<h5 className='text-center'>
+				<p className='text-center'>
 					<s>无意义内容</s>
-				</h5>
+				</p>
 				Gestures
 			</h2>
 
