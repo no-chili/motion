@@ -1,5 +1,7 @@
 import { useRoutes } from 'react-router-dom'
-import { makeRoutes } from './router'
+// import { makeRoutes } from './router'
+import { makeRoutes } from './router/router'
+
 import errorImage from './assets/error.png'
 const routes = makeRoutes()
 

@@ -14,10 +14,11 @@ export type RoutePropsWidthChildren = {
 }
 // 使用vite提供的import.meta.glob获取文件目录
 const modules = import.meta.glob('../pages/**/**.tsx')
+
 export function makeRoutes() {
 	// 生成路由表
 	let routes: Array<RouteProps> = Object.entries(modules).map(([key]) => {
-		const path = key.replace(/\/index\.tsx$/, '').replace('../', '')
+		const path = key.replace(/\/index\.tsx$/, '').replace('..', '')
 		const moduleValue = () => import(/* @vite-ignore */ key)
 		const LazyComponent = lazy(moduleValue)
 		return {
@@ -45,6 +46,8 @@ export function makeRoutes() {
 			element: <Navigate to='/pages/error' />,
 		}
 	)
+
+	console.log(routesWithChildren)
 
 	return routesWithChildren
 }

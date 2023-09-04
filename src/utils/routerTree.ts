@@ -3,6 +3,7 @@ import { RouteProps, RoutePropsWidthChildren } from '../router'
 export function createRouterTree(routes: Array<RouteProps>) {
 	const routesWithChildren: Array<RoutePropsWidthChildren> = []
 	routes.forEach((i) => {
+		// 是否在外层
 		let falg = true
 		routesWithChildren.map((item) => {
 			if (i.path?.includes(item.path!)) {
