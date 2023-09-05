@@ -1,6 +1,6 @@
 # 让你更了解我
 
-https://motion-f9u1j04hy-no-chili.vercel.app/
+https://motion-ashen.vercel.app/
 
 ## 做了什么
 

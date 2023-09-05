@@ -1,7 +1,8 @@
 import { Reorder, motion } from 'framer-motion'
-import { confetti } from 'dom-confetti'
+
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { confit } from '../../utils/confetti'
 export default function Menu() {
 	const nav = useNavigate()
 	const [menuIcons, setMenuIcons] = useState([
@@ -11,14 +12,6 @@ export default function Menu() {
 		'i-fluent-emoji-flat:beaming-face-with-smiling-eyes',
 		'i-fluent-emoji-flat:flexed-biceps',
 	])
-	function confit() {
-		const app = document.getElementById('confit')
-		confetti(app!, {
-			height: '20px',
-			spread: 300,
-			elementCount: 100,
-		})
-	}
 	function goHome() {
 		nav('/pages/home/content')
 	}
