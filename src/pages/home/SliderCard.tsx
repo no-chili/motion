@@ -1,4 +1,4 @@
-import { MotionConfig, motion } from 'framer-motion'
+import { motion } from 'framer-motion'
 import hello from '../../assets/hello.png'
 
 export default function SliderCard() {
@@ -30,7 +30,7 @@ export default function SliderCard() {
 				className='overflow-hidden h-full rounded-1 bg-#1f1f21'
 			>
 				<h1 className='text-blue text-center m-4'>Hello!</h1>
-				<motion.div className='m-4 rounded h-40 bg-white'>
+				<motion.div className='m-4 rounded h-40 overflow-hidden bg-white'>
 					<img className='w-100 h-full object-cover' src={hello} alt='hello' />
 				</motion.div>
 				<h2 className='text-green  m-4'>
@@ -47,38 +47,36 @@ export default function SliderCard() {
 						</a>
 					</div>
 				</h2>
-				<MotionConfig>
-					{config.map((item, index) => (
-						<motion.li
-							initial={{
-								x: 100,
-								opacity: 0,
-							}}
-							animate={{
-								x: 0,
-								opacity: 1,
-								transition: {
-									type: 'spring',
-									delay: 1 + 0.5 * index,
-								},
-							}}
-							layout
-							drag='y'
-							dragConstraints={{ top: 0, bottom: 0 }}
-							className='text-white m-4 mb-10'
-							key={item.title}
-						>
-							<h2 className='text-red '>
-								<span className='border-solid border-transparent border-b-red'>{item.title}</span>
-							</h2>
-							<div className='gap-3 mt-5 flex flex-wrap '>
-								{item.list.map((item) => (
-									<h3 key={item}>{item}</h3>
-								))}
-							</div>
-						</motion.li>
-					))}
-				</MotionConfig>
+				{config.map((item, index) => (
+					<motion.li
+						initial={{
+							x: 100,
+							opacity: 0,
+						}}
+						animate={{
+							x: 0,
+							opacity: 1,
+							transition: {
+								type: 'spring',
+								delay: 1 + 0.5 * index,
+							},
+						}}
+						layout
+						drag='x'
+						dragConstraints={{ left: 0, right: 0 }}
+						className='text-white m-4 mb-10'
+						key={item.title}
+					>
+						<h2 className='text-red '>
+							<span className='border-solid border-transparent border-b-red'>{item.title}</span>
+						</h2>
+						<div className='gap-3 mt-5 flex flex-wrap '>
+							{item.list.map((item) => (
+								<h3 key={item}>{item}</h3>
+							))}
+						</div>
+					</motion.li>
+				))}
 			</motion.div>
 		</div>
 	)

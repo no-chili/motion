@@ -10,6 +10,7 @@ import Card from '../../component/Card'
 import { useState } from 'react'
 import { getDB } from '../../utils/db'
 import createTableSQL from '../../assets/table.sql?raw'
+import useCatchLog from '../../utils/useCatchLog'
 
 type SQLResult = { columns: any[]; values: any[] }
 
@@ -38,14 +39,20 @@ export default function CodeEdit() {
 	const [language, setLanguage] = useState('sql')
 	const [execResult, setExecResult] = useState<SQLResult>({ columns: [], values: [] })
 	const [error, setError] = useState<string>()
+	const { log, setLog, clearLog } = useCatchLog()
+
 	// 当前代码
-	let code = 'select * from "student"'
+	const [code, setCode] = useState('select * from "student"')
 	const codeChange = (newCode?: string) => {
-		code = newCode || ''
+		setCode(newCode || '')
 	}
 	// 切换语言
 	const changeLanguage = (e: React.SyntheticEvent<HTMLSelectElement, Event>) => {
 		const newLanguage = e.currentTarget.value
+		clearLog()
+		setExecResult({ columns: [], values: [] })
+		const resultNode = document.getElementById('exec_result')
+		resultNode!.innerHTML = ''
 		setLanguage(newLanguage)
 	}
 	// 执行SQL
@@ -58,24 +65,73 @@ export default function CodeEdit() {
 			res = []
 			setError('SQL语句不合法')
 		}
-		setExecResult(res[0])
+		if (res.length > 0) {
+			setExecResult(res[0])
+		}
+	}
+
+	// 执行HTML
+	const execHTML = () => {
+		const resultNode = document.getElementById('exec_result')
+		resultNode!.innerHTML = code
+	}
+
+	// 执行js
+	const execJS = () => {
+		try {
+			eval(code)
+		} catch (error) {
+			setLog((state) => [...state, String(error)])
+		}
+	}
+
+	// 可执行的语言
+	const execable = {
+		sql: execSQL,
+		html: execHTML,
+		javascript: execJS,
+	}
+
+	// 点击执行
+	const clickExec = () => {
+		if (language === 'sql') {
+			execSQL()
+		} else if (language === 'html') {
+			execHTML()
+		} else if (language === 'javascript') {
+			execJS()
+		}
 	}
 	return (
 		<div>
 			<Card padding={0}>
-				<select className='p-1 ' name='language' onChange={(e) => changeLanguage(e)} id='language'>
-					<option value='sql'>sql</option>
-					<option value='json'>json</option>
-					<option value='css'>css</option>
-					<option value='html'>html</option>
-					<option value='typescript'>typescript</option>
-					<option value='javascript'>javascript</option>
-				</select>
-				<button className='h-25px m-3' disabled={language !== 'sql'} onClick={execSQL}>
-					执行
-				</button>
+				<div className='mx-5'>
+					<h2>代码编辑器</h2>
+					<select className='p-1 ' name='language' onChange={(e) => changeLanguage(e)} id='language'>
+						<option value='sql'>sql</option>
+						<option value='json'>json</option>
+						<option value='css'>css</option>
+						<option value='html'>html</option>
+						<option value='typescript'>typescript</option>
+						<option value='javascript'>javascript</option>
+					</select>
+					<button className='h-25px m-3' disabled={!Object.keys(execable).includes(language)} onClick={clickExec}>
+						执行
+					</button>
+					<button className='h-25px' disabled={language !== 'javascript'} onClick={clearLog}>
+						清空控制台
+					</button>
+				</div>
 				<Editor height='300px' theme='vs-dark' onChange={(code) => codeChange(code)} language={language} defaultLanguage='javascript' defaultValue={code} />
 				<h3 className='m-5'>执行结果</h3>
+				<div className='m-5'>
+					{log.map((item, index) => (
+						<p className='hover:bg-gray' key={index}>
+							{item}
+						</p>
+					))}
+				</div>
+				<div id='exec_result'></div>
 				{error ? (
 					error
 				) : (

@@ -44,8 +44,8 @@ function Content() {
 	}, [])
 	return (
 		<div className='article_content'>
-			<h2 className='text-center m-10'>踩坑</h2>
-			<h5 className='indent'>
+			<h2 className='m-10'>踩坑</h2>
+			<h5>
 				<ul className='trouble'>
 					<a target='_blank' href='https://stackoverflow.com/questions/71571129/how-to-use-embedded-webassembly-in-vite'>
 						<li>Vite导入.wasm文件失败，import时使用?url获取路径，Json文件使用?raw获取内容</li>
@@ -61,7 +61,7 @@ function Content() {
 					</a>
 				</ul>
 			</h5>
-			<h2 className='text-center m-10'>
+			<h2 className='my-2 border-yellow inline-block border-3 border-b-solid '>
 				<p className='text-center'>
 					<s>无意义内容</s>
 				</p>
@@ -69,11 +69,10 @@ function Content() {
 			</h2>
 
 			<h5 className='indent'>
-				A powerful gesture recognition system for the browser. 强大的浏览器手势识别系统。 Motion extends the basic set of event listeners provided by React with a simple yet powerful set of UI gesture
-				recognisers. Motion{' '}
+				A powerful gesture recognition system for the browser. Motion extends the basic set of event listeners provided by React with a simple yet powerful set of UI gesture recognisers. Motion{' '}
 			</h5>
 			<h5 className='indent'>It currently has support for hover, tap, pan and drag gesture detection. Each gesture has a series of event listeners that you can attach to your motion component.</h5>
-			<h2 className='text-center m-10'>Animation helpers</h2>
+			<h2 className='my-2 border-yellow inline-block border-3 border-b-solid '>Animation helpers</h2>
 			<h5 className='indent'>
 				motion components provide multiple gesture animation props: whileHover, whileTap, whileFocus, whileDrag and whileInView. These can define animation targets to temporarily animate to while a
 				gesture is active. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque fuga pariatur culpa repudiandae magni impedit minima in.
@@ -87,7 +86,7 @@ function Content() {
 				and any properties defined on both will remain in their tapped state. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam veniam debitis magnam doloribus optio quam soluta porro
 				distinctio voluptatum. Sequi natus ut dolorem! Explicabo nam saepe dolorum beatae eius porro.
 			</h5>
-			<h2 className='text-center m-10'>Propagation</h2>
+			<h2 className='my-2 border-yellow inline-block border-3 border-b-solid'>Propagation</h2>
 			<h5 className='indent'>
 				Children can stop pointer events propagating to parent motion components using the Capture React props. For instance, a child can stop drag and tap gestures and their related while animations
 				from firing on parents by passing e.stopPropagation() to onPointerDownCapture. veniam dolore tempore. Nisi cumque velit quaerat. Incidunt deleniti recusandae autem corporis reprehenderit sequi
