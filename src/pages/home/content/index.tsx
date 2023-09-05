@@ -29,9 +29,9 @@ export default function Content() {
 			<div className='m-5 lg:mx-0 fs:hidden fs:w-100'>
 				<SliderCard />
 			</div>
-			<h1 onClick={gift} className='navlogo'>
-				给个机会
-			</h1>
+			<h2 onClick={gift} className='navlogo'>
+				no-chili
+			</h2>
 			<LayoutGroup>
 				<motion.div className='m-5 fs:mt-10 lg:mx-0'>
 					<CodeEdit />

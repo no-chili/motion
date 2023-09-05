@@ -59,7 +59,7 @@ export default function SliderCard() {
 								opacity: 1,
 								transition: {
 									type: 'spring',
-									delay: 2 + 0.5 * index,
+									delay: 1 + 0.5 * index,
 								},
 							}}
 							layout

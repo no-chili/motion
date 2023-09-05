@@ -62,7 +62,7 @@ export default function CodeEdit() {
 	}
 	return (
 		<div>
-			<Card>
+			<Card padding={0}>
 				<select className='p-1 ' name='language' onChange={(e) => changeLanguage(e)} id='language'>
 					<option value='sql'>sql</option>
 					<option value='json'>json</option>
@@ -75,11 +75,11 @@ export default function CodeEdit() {
 					执行
 				</button>
 				<Editor height='300px' theme='vs-dark' onChange={(code) => codeChange(code)} language={language} defaultLanguage='javascript' defaultValue={code} />
-				<h3>执行结果</h3>
+				<h3 className='m-5'>执行结果</h3>
 				{error ? (
 					error
 				) : (
-					<table className='w-full text-left'>
+					<table className='w-full px-5 text-left'>
 						<thead>
 							<tr className='flex justify-between'>
 								{execResult.columns &&

@@ -1,5 +1,5 @@
-import { motion, useScroll, useSpring } from 'framer-motion'
-import { useRef } from 'react'
+import { animate, inView, motion, useScroll, useSpring } from 'framer-motion'
+import { useEffect, useRef } from 'react'
 import { useLocation } from 'react-router-dom'
 import useGoHome from '../../../hooks/useGoHome'
 import useMyScroll from '../../../hooks/useScroll'
@@ -16,7 +16,7 @@ export default function Index() {
 		<div className='relative overflow-hidden h-full text-center'>
 			<motion.div style={{ scaleX: scrollX }} className='scroll'></motion.div>
 			<div ref={containerRef} className='h-full overflow-auto'>
-				<h1 className='m-20'>路由传参-搜索词：{state}</h1>
+				<h3 className='m-20'>路由传参-搜索词：{state}</h3>
 				<span onClick={goHome} className='border-solid  border-transparent border-b-red'>
 					点此返回
 				</span>
@@ -34,8 +34,16 @@ export default function Index() {
 
 // 复制的内容，不重要
 function Content() {
+	useEffect(() => {
+		const h2 = document.querySelectorAll('h2')
+		const li = document.querySelectorAll('li')
+		const h5 = document.querySelectorAll('h5')
+		inView([...h2, ...h5, ...li], ({ target }) => {
+			animate(target, { opacity: 1 })
+		})
+	}, [])
 	return (
-		<div className='m-auto text-left p-5 max-w-150'>
+		<div className='article_content'>
 			<h2 className='text-center m-10'>踩坑</h2>
 			<h5 className='indent'>
 				<ul className='trouble'>

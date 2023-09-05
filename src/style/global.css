@@ -47,7 +47,7 @@ body,
 }
 
 .navlogo{
-	--at-apply:fixed top-0 text-center p-1 z-999 md:hidden w-full bg-#0559fa text-white
+	--at-apply:fixed top-0 text-center p-2 z-999 md:hidden w-full bg-red text-white
 }
 
 .scroll {
@@ -57,4 +57,12 @@ body,
 
 .trouble li{
 	--at-apply:my-3
+}
+
+.article_content{
+	--at-apply:m-auto text-left p-5 max-w-150
+}
+
+.article_content>h2,h5{
+	opacity: 0;
 }
