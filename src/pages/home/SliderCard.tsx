@@ -1,5 +1,6 @@
 import { MotionConfig, motion } from 'framer-motion'
 import hello from '../../assets/hello.png'
+
 export default function SliderCard() {
 	const config = [
 		{
@@ -16,7 +17,7 @@ export default function SliderCard() {
 		},
 	]
 	return (
-		<div className='hidden fs:block overflow-hidden h-full rounded-1 w-100 max-w-150 bg-#1f1f21'>
+		<div className='h-full rounded-1'>
 			<motion.div
 				initial={{
 					x: 100,
@@ -29,7 +30,7 @@ export default function SliderCard() {
 						delay: 1,
 					},
 				}}
-				className='hidden fs:block overflow-hidden h-full rounded-1 w-100 max-w-150 bg-#1f1f21'
+				className='overflow-hidden h-full rounded-1 bg-#1f1f21'
 			>
 				<h1 className='text-blue text-center m-4'>Hello!</h1>
 				<motion.div className='m-4 rounded h-40 bg-white'>

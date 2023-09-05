@@ -1,27 +1,31 @@
-# React + TypeScript + Vite
+# 让你更了解我
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+https://motion-f9u1j04hy-no-chili.vercel.app/
 
-Currently, two official plugins are available:
+## 做了什么
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 响应式的布局，可以在 PC、移动端设备上浏览
+- 使用 web 端代码编辑器，实现代码编写，并适配了 SQL 的执行
+- 实现了路由的跳转页面过渡动画
+- 手写了 tab 栏切换组件，并添加流畅的动画
+- 单词默写，并使得分本地化
+- 上传到了 git 并在 vercel 部署
 
-## Expanding the ESLint configuration
+## 使用到的技术
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- react
+- react-router-dom
+- @monaco-editor/react
+- @reduxjs/toolkit
+- dom-confetti
+- framer-motion
+- monaco-editor
+- sql.js
 
-- Configure the top-level `parserOptions` property like this:
+## 遇到的一些麻烦，最终都能独立解决
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- Vite 导入.wasm 文件失败，import 时使用?url 获取路径，Json 文件使用?raw 获取内容
+- Frame-motion 的 useScroll 默认监听 window，需要手动使用 ref 获取 dom
+- Sql.js 默认导入路径和 pnpm 冲突，需要 vite 手动导入，或者使用 CDN 导入
+- UnoCSS 配置 theme 的 breakpoints 是覆盖操作不是合并，会导致原有查询失效
+- vite 发布线上访问空白页问题，需要在 vite.config.ts 配置 base: './'

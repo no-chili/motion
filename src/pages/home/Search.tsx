@@ -54,7 +54,7 @@ export default function Search(props: Props) {
 	return (
 		<AnimatePresence>
 			{isvVisibility && (
-				<motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className={`h-20 rounded-2 overflow-hidden bg-#ffffff shadow-md w-full ${postion}`}>
+				<motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className={`h-20 rounded-2 overflow-hidden bg-#ffffff lg:mx-0 shadow-md w-full ${postion}`}>
 					<LayoutGroup id='search'>
 						<AnimatePresence>
 							{!needFouse && (
@@ -71,13 +71,13 @@ export default function Search(props: Props) {
 								</motion.div>
 							)}
 						</AnimatePresence>
-						<motion.div layout layoutId='search' className='px-3 h-full flex flex-wrap items-center leading-20 text-lg '>
+						<motion.div layout layoutId='search' className='px-3 h-full flex items-center leading-20 text-lg '>
 							<div className='w-10 h-10 i-ic:baseline-search'></div>
 							<input
 								ref={inputRef}
 								onKeyDownCapture={(e) => keyDown(e)}
 								onChange={(e) => inputChange(e)}
-								className='border-none pl-5 font-bold flex-1 text-#ababab focus:text-#232323 outline-none text-2xl'
+								className='border-none px-5 font-bold w-full text-#ababab focus:text-#232323 outline-none text-2xl'
 								type='text'
 							/>
 							<div onClick={search} className='w-20  text-2xl font-800'>
