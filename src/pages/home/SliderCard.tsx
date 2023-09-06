@@ -29,7 +29,22 @@ export default function SliderCard() {
 				}}
 				className='overflow-hidden h-full rounded-1 bg-#1f1f21'
 			>
-				<h1 className='text-blue text-center m-4'>Hello!</h1>
+				<motion.h1
+					initial={{
+						y: -100,
+						opacity: 0,
+					}}
+					animate={{
+						y: 0,
+						opacity: 1,
+						transition: {
+							delay: 0.5,
+						},
+					}}
+					className='text-blue text-center m-4'
+				>
+					Hello!
+				</motion.h1>
 				<motion.div className='m-4 rounded h-40 overflow-hidden bg-white'>
 					<img className='w-100 h-full object-cover' src={hello} alt='hello' />
 				</motion.div>

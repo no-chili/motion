@@ -1,29 +1,18 @@
-import { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
-import { hidden, show } from '../../../store/coverSlice'
+import { useState } from 'react'
 import Button from '../../../component/Button'
+import useMyNavigate from '../../../hooks/useMyNavigate'
 
 export default function Photos() {
-	const nav = useNavigate()
-	const dispatch = useDispatch()
+	const { goHome } = useMyNavigate()
 	const [imageArray, setImageArray] = useState(new Array(6).fill(0))
 	function loadMore() {
 		setImageArray([...imageArray, ...new Array(6).fill(0)])
 	}
-	useEffect(() => {
-		dispatch(hidden())
-	}, [])
-	function geBack() {
-		dispatch(show())
-		setTimeout(() => {
-			nav('/pages/home/content')
-		}, 800)
-	}
+
 	return (
 		<div className='m-auto h-full relative p-3 lg:w-800px fs:w-640px'>
 			<div className='mb-5'>
-				<Button onClick={geBack}>Back</Button>
+				<Button onClick={goHome}>Back</Button>
 			</div>
 			<div className='grid gap-2 justify-center items-center md:grid-cols-3 grid-cols-4'>
 				{imageArray.map((_, index) => (

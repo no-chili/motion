@@ -1,8 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit'
-import coverSlice from './coverSlice'
+import cover from './coverSlice'
+import scroll from './scrollSlice'
 const store = configureStore({
 	reducer: {
-		cover: coverSlice,
+		cover,
+		scroll,
 	},
 })
 

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 const consolelog = console.log
 
-export default function useCatchLog() {
+export default function useCatchLog(language: string) {
 	const [log, setLog] = useState<any[]>([])
 	const mylog = (...args: any[]) => {
 		setLog((state) => [...state, ...args])
@@ -9,11 +9,14 @@ export default function useCatchLog() {
 	}
 
 	useEffect(() => {
-		console.log = mylog
+		if (language.toLowerCase() === 'javascript') {
+			console.log = mylog
+		}
 		return () => {
 			console.log = consolelog
 		}
 	}, [])
+
 	function clearLog() {
 		setLog([])
 	}

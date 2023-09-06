@@ -1,9 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-const coverhScroll = createSlice({
-	name: 'cover',
+const Scroll = createSlice({
+	name: 'scroll',
 	initialState: {
-		isShow: false,
+		isShow: true,
 	},
 	reducers: {
 		show: (state) => {
@@ -15,6 +15,6 @@ const coverhScroll = createSlice({
 	},
 })
 
-export const { show, hidden } = coverhScroll.actions
+export const { show, hidden } = Scroll.actions
 
-export default coverhScroll.reducer
+export default Scroll.reducer

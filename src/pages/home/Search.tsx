@@ -1,12 +1,12 @@
 import { AnimatePresence, LayoutGroup, motion } from 'framer-motion'
 import { useRef, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import useMyNavigate from '../../hooks/useMyNavigate'
 
 export default function Search() {
 	const [needFouse, setNeedFouse] = useState(false)
 	const [searchValue, setSearchValue] = useState('')
 	const inputRef = useRef<HTMLInputElement>(null)
-	const nav = useNavigate()
+	const { navgation } = useMyNavigate()
 
 	const toggleSearch = () => {
 		setTimeout(() => {
@@ -27,7 +27,7 @@ export default function Search() {
 	const search = () => {
 		const words = searchValue.trim()
 		if (words.length > 0) {
-			nav('/pages/home/article', {
+			navgation('/pages/home/article', {
 				state: searchValue,
 			})
 		}
@@ -51,13 +51,20 @@ export default function Search() {
 						</motion.div>
 					)}
 				</AnimatePresence>
-				<motion.div layout layoutId='search' className='px-3 h-full flex items-center leading-20 text-lg '>
+				<motion.div
+					whileTap={{
+						scale: 1.05,
+					}}
+					layout
+					layoutId='search'
+					className='px-3 h-full flex items-center leading-20 text-lg '
+				>
 					<div className='w-10 h-10 i-ic:baseline-search'></div>
 					<input
 						ref={inputRef}
 						onKeyDownCapture={(e) => keyDown(e)}
 						onChange={(e) => inputChange(e)}
-						className='border-none px-5 font-bold w-full text-#ababab focus:text-#232323 outline-none text-2xl'
+						className='border-none px-5 font-bold w-full bg-transparent text-#ababab focus:text-#232323 outline-none text-2xl'
 						type='text'
 					/>
 					<div onClick={search} className='w-20  text-2xl font-800'>

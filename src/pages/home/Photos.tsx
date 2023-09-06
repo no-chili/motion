@@ -1,21 +1,9 @@
-import { AnimatePresence, motion } from 'framer-motion'
+import { motion } from 'framer-motion'
 import Card from '../../component/Card'
-import { useDispatch } from 'react-redux'
-import { show } from '../../store/coverSlice'
-import { AppDispatch } from '../../store'
-import { useNavigate } from 'react-router-dom'
+import Button from '../../component/Button'
+import useMyNavigate from '../../hooks/useMyNavigate'
 export default function Photos() {
-	const dispatch: AppDispatch = useDispatch()
-	const nav = useNavigate()
-	function gotoPhotos() {
-		setTimeout(() => {
-			dispatch(show())
-		}, 100)
-		setTimeout(() => {
-			nav('/pages/home/photos')
-		}, 1000)
-	}
-
+	const { navgation } = useMyNavigate()
 	return (
 		<div className='shadow-md'>
 			<Card title='随机图片' message='国外接口可能有点慢'>
@@ -25,20 +13,10 @@ export default function Photos() {
 					))}
 				</motion.div>
 				<div className='mt-5'>
-					<motion.div className='relative border-solid flex w-fit items-center p-1 rounded border-red bg-red hover:bg-yellow hover:border-yellow transition'>
-						<span onClick={gotoPhotos}>more</span>
+					<Button onClick={() => navgation('/pages/home/photos')}>
+						<span>more</span>
 						<div className='text-lg i-ic:baseline-keyboard-arrow-right'></div>
-						<AnimatePresence>
-							<motion.div
-								transition={{
-									type: 'spring',
-									duration: 1,
-								}}
-								exit={{ width: 3000, height: 3000 }}
-								className='bg-yellow rounded-1/2 abscenter'
-							></motion.div>
-						</AnimatePresence>
-					</motion.div>
+					</Button>
 				</div>
 			</Card>
 		</div>

@@ -28,7 +28,7 @@ body,
 	transform: translate(-50%, 0);
 }
 .searchcontainer{
-	--at-apply:h-20 rounded-2 overflow-hidden bg-#ffffff lg:mx-0 shadow-md w-full 
+	--at-apply:h-20 overflow-hidden border-b-(read solid 5) lg:mx-0 w-full 
 }
 .image {
 	--at-apply: object-cover rounded-1 overflow-hidden;
@@ -47,7 +47,7 @@ body,
 }
 
 .navlogo{
-	--at-apply:fixed top-0 text-center p-2 z-999 md:hidden w-full bg-red text-white
+	--at-apply:fixed top-0 py-3 px-5 z-999 md:hidden w-full bg-red text-white
 }
 
 .scroll {
@@ -61,8 +61,4 @@ body,
 
 .article_content{
 	--at-apply:m-auto text-left p-5 max-w-150
-}
-
-.article_content>h2,h5{
-	opacity: 0;
 }

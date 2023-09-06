@@ -1,37 +1,52 @@
-import { useEffect } from 'react'
 import Photos from '../Photos'
 import Search from '../Search'
-import { hidden } from '../../../store/coverSlice'
-import { useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 import Ingredients from '../Ingredients'
 import CodeEdit from '../CodeEdit'
-import { LayoutGroup, motion } from 'framer-motion'
+import { AnimatePresence, LayoutGroup, motion } from 'framer-motion'
 import Words from '../Words'
-import useGoHome from '../../../hooks/useGoHome'
 import SliderCard from '../SliderCard'
 import { confit } from '../../../utils/confetti'
+import { RootState } from '../../../store/index'
+import { useNavigate } from 'react-router-dom'
 
 export default function Content() {
-	const dispatch = useDispatch()
-	useEffect(() => {
-		dispatch(hidden())
-	}, [])
-	const { goHome } = useGoHome()
+	const nav = useNavigate()
 	function gift() {
 		confit()
-		goHome()
+		nav('/pages/home/content')
 	}
+
+	// 控制nav是否显示
+	const visibility = useSelector((state: RootState) => state.scroll.isShow)
+
 	return (
 		<div className='m-auto py-10 lg:w-800px fs:w-640px'>
+			<AnimatePresence>
+				{visibility && (
+					<motion.h2
+						initial={{
+							opacity: 0,
+						}}
+						animate={{
+							opacity: 1,
+						}}
+						exit={{
+							opacity: 0,
+						}}
+						onClick={gift}
+						className='navlogo'
+					>
+						no-chili
+					</motion.h2>
+				)}
+			</AnimatePresence>
 			<div className='m-5 lg:m-0'>
 				<Search />
 			</div>
 			<div className='m-5 lg:mx-0 fs:hidden fs:w-100'>
 				<SliderCard />
 			</div>
-			<h2 onClick={gift} className='navlogo'>
-				no-chili
-			</h2>
 			<LayoutGroup>
 				<motion.div className='m-5 fs:mt-10 lg:mx-0'>
 					<CodeEdit />
