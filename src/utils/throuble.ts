@@ -1,9 +1,9 @@
-export default function throttle(callback: { (last: any): void; call?: any }, time: number | undefined) {
+export default function throttle(callback: () => void, time: number | undefined) {
 	let flag = true
-	return (args: any) => {
+	return function (this: any) {
 		if (flag) {
 			flag = false
-			callback.call(this, ...args)
+			callback()
 			setTimeout(() => {
 				flag = true
 			}, time)
