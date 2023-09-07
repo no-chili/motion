@@ -2,7 +2,8 @@ import { motion } from 'framer-motion'
 import Card from '../../component/Card'
 import Button from '../../component/Button'
 import useMyNavigate from '../../hooks/useMyNavigate'
-export default function Photos() {
+import React from 'react'
+function Photos() {
 	const { navgation } = useMyNavigate()
 	return (
 		<div className='shadow-md'>
@@ -22,3 +23,4 @@ export default function Photos() {
 		</div>
 	)
 }
+export default React.memo(Photos)
