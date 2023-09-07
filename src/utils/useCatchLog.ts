@@ -3,7 +3,7 @@ const consolelog = console.log
 
 export default function useCatchLog(language: string) {
 	const [log, setLog] = useState<any[]>([])
-	const mylog = (...args: any[]) => {
+	const mylog = (...args: string[]) => {
 		setLog((state) => [...state, ...args])
 		consolelog.apply(window, args)
 	}

@@ -40,7 +40,7 @@ export default function CodeEdit() {
 	const [language, setLanguage] = useState('sql')
 	const [execResult, setExecResult] = useState<SQLResult>({ columns: [], values: [] })
 	const [error, setError] = useState<string>()
-	const { log, setLog, clearLog } = useCatchLog(language)
+	const { log, setLog, clearLog } = useCatchLog('javascript')
 
 	// 当前代码
 	const [code, setCode] = useState('select * from "student"')
@@ -88,7 +88,9 @@ export default function CodeEdit() {
 	}
 
 	// 可执行的语言
-	const execable = {
+	const execable: {
+		[key: string]: any
+	} = {
 		sql: execSQL,
 		html: execHTML,
 		javascript: execJS,
@@ -96,12 +98,9 @@ export default function CodeEdit() {
 
 	// 点击执行
 	const clickExec = () => {
-		if (language === 'sql') {
-			execSQL()
-		} else if (language === 'html') {
-			execHTML()
-		} else if (language === 'javascript') {
-			execJS()
+		const exe = execable[language.toLowerCase()]
+		if (typeof exe === 'function') {
+			exe()
 		}
 	}
 	return (
