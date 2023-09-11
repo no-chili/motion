@@ -1,5 +1,4 @@
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'framer-motion'
-import Menu from './Menu'
 import SliderCard from './SliderCard'
 import { Outlet } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
