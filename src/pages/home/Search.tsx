@@ -34,7 +34,7 @@ export default function Search() {
 	}
 
 	return (
-		<motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className={`searchcontainer`}>
+		<motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className={`searchcontainer bg-#262626 color-white`}>
 			<LayoutGroup id='search'>
 				<AnimatePresence>
 					{!needFouse && (
@@ -64,10 +64,10 @@ export default function Search() {
 						ref={inputRef}
 						onKeyDownCapture={(e) => keyDown(e)}
 						onChange={(e) => inputChange(e)}
-						className='border-none px-5 font-bold w-full bg-transparent text-#ababab focus:text-#232323 outline-none text-2xl'
+						className='border-none px-5 font-bold w-full bg-transparent text-#ababab focus:text-#fcfcfc outline-none text-2xl'
 						type='text'
 					/>
-					<div onClick={search} className='w-20  text-2xl font-800'>
+					<div onClick={search} className='w-20 text-2xl font-800'>
 						搜索
 					</div>
 				</motion.div>

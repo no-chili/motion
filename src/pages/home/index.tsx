@@ -39,8 +39,7 @@ export default function Home() {
 	})
 
 	return (
-		<div className='flex bg-#f7f7f7 h-full'>
-			<Menu />
+		<div className='flex  bg-#0c0e12 h-full'>
 			<div ref={ref} className='overflow-auto  overflow-x-hidden flex-1 h-full'>
 				<Outlet />
 				{/* 黄色遮罩 */}

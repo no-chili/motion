@@ -13,7 +13,7 @@ export default function Index() {
 	const { scrollToTop } = useMyScroll()
 
 	return (
-		<div className='relative overflow-hidden h-full text-center'>
+		<div className='relative color-#fcfcfc overflow-hidden h-full text-center'>
 			<motion.div style={{ scaleX: scrollX }} className='scroll'></motion.div>
 			<div ref={containerRef} className='h-full overflow-auto'>
 				<h5 className='mt-20 mb-10'>路由传参-搜索词：{state}</h5>

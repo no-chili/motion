@@ -28,7 +28,7 @@ body,
 	transform: translate(-50%, 0);
 }
 .searchcontainer{
-	--at-apply:h-20 overflow-hidden border-b-(read solid 5) lg:mx-0 w-full 
+	--at-apply:h-20 overflow-hidden border-b-(red solid 5) lg:mx-0 w-full 
 }
 .image {
 	--at-apply: object-cover rounded-1 overflow-hidden;
